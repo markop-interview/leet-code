@@ -1,8 +1,6 @@
 ## Overview
 **Difficulty:** Easy (warm-up)
-
 **Pattern:** Arrays & Hashing
-
 **LeetCode reference:** [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
 This is the warm-up task. The algorithm is simple on purpose, so the focus is on clean, idiomatic Go, just like in a real interview.
