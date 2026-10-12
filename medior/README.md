@@ -27,5 +27,6 @@ Cards are on [Go Interview Prep - Medior](https://trello.com/b/A0jOhpzi/go-inter
 | Task | Difficulty | Pattern | Status | Grade |
 |---|---|---|---|---|
 | [Task #001 - containsDuplicate](./Task%20%23001%20-%20containsDuplicate/) | Easy | Arrays & Hashing | To-Do | - |
+| [Task #002 - validAnagram](./Task%20%23002%20-%20validAnagram/) | Easy | Arrays & Hashing | To-Do | - |
 
 Add a row when a new task folder is created.
