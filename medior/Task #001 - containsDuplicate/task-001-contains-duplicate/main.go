@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("task-001-contains-duplicate")
+	fmt.Println("Task #001 - containsDuplicate")
 }
