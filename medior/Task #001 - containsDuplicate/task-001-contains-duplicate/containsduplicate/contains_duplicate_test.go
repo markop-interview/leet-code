@@ -57,7 +57,7 @@ func TestContainDuplicate(t *testing.T) {
 		{
 			name: "duplicate negative numbers",
 			s:    []int{1, -2, -3, 4, 3, 5, -6, 7, -7, -7},
-			want: false,
+			want: true,
 		},
 		{
 			name: "large values near the constraints",
@@ -72,7 +72,7 @@ func TestContainDuplicate(t *testing.T) {
 
 		if got != tt.want {
 			t.Fatalf(
-				"%s: expected %d, got %d",
+				"%s: expected %t, got %t",
 				tt.name,
 				tt.want,
 				got,
