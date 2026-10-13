@@ -1,7 +1,6 @@
 package containsduplicate
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -27,7 +26,7 @@ func ContainsDuplicateSort(nums []int) bool {
 	sorted = append(sorted, nums...)
 
 	sort.Ints(sorted)
-	fmt.Printf("%v :: ", sorted)
+	//fmt.Printf("%v :: ", sorted)
 
 	for i := 1; i < len(sorted); i++ {
 		if sorted[i] == sorted[i-1] {
