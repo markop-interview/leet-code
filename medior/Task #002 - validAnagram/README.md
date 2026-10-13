@@ -40,6 +40,7 @@ func IsAnagram(s string, t string) bool
 3. Also implement `IsAnagramUnicode(s string, t string) bool`, which must work correctly for **any Unicode text** (for example `"čaša"` and `"šača"` return `true`, and `"привет"` and `"тевирп"` return `true`).
 4. Return `false` as early as possible when the inputs clearly cannot be anagrams.
 5. Add a doc comment above each exported function.
+6. The solution lives in the `validanagram` package (its own directory), and a `main.go` (`package main`) in the project root calls the exported functions on the examples above and prints the results.
 
 ## Bonus (optional)
 - Write **table-driven tests** with `t.Run` subtests covering at least: both empty, one empty, different lengths, same letters with different counts, a valid anagram, identical strings, and Unicode inputs for `IsAnagramUnicode`. Run them with `-race`.
@@ -51,13 +52,16 @@ func IsAnagram(s string, t string) bool
 ```
 task-002-valid-anagram/
 ├── go.mod
-├── valid_anagram.go
-├── valid_anagram_test.go   (bonus)
-└── README.md               (bonus)
+├── main.go                          (package main)
+├── README.md                        (bonus)
+└── validanagram/
+    ├── valid_anagram.go             (package validanagram)
+    └── valid_anagram_test.go        (bonus)
 ```
 
 ## Definition of Done
 - [ ] `go build ./...` succeeds
+- [ ] `go run .` prints the results for the examples
 - [ ] `go vet ./...` reports no issues
 - [ ] `gofmt -l .` returns nothing
 - [ ] Both functions return correct results (verified by my review tests, run with `-race`)
