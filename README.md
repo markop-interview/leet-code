@@ -18,9 +18,11 @@ Two tracks:
 │       ├── README.md
 │       └── task-001-contains-duplicate/
 │           ├── go.mod
-│           ├── contains_duplicate.go
-│           ├── contains_duplicate_test.go
-│           └── README.md
+│           ├── main.go
+│           ├── README.md
+│           └── containsduplicate/
+│               ├── contains_duplicate.go
+│               └── contains_duplicate_test.go
 └── senior/
     └── README.md
 ```
@@ -33,7 +35,7 @@ Two tracks:
 ```
 
 - The task `README.md` is the full problem statement: difficulty, pattern, signature, examples, constraints, requirements, and bonus work.
-- `task-NNN-kebab-name/` is the Go module. It holds `go.mod`, the solution `.go` file, `*_test.go`, and a `README.md` for complexity notes.
+- `task-NNN-kebab-name/` is the Go module. `go.mod`, `main.go` (`package main`), and a `README.md` for complexity notes sit in that root. The solution lives in a package subdirectory (`<pkg>/<solution>.go` and `<pkg>/*_test.go`).
 - `NNN` is a zero-padded number. Difficulty increases with the task number, starting at Task #001.
 
 Example: `medior/Task #001 - containsDuplicate/task-001-contains-duplicate/`.

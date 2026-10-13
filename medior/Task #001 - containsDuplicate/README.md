@@ -1,9 +1,8 @@
 ## Overview
 **Difficulty:** Easy (warm-up)
-
 **Pattern:** Arrays & Hashing
-
 **LeetCode reference:** [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+**Repo folder:** `medior/Task #001 - containsDuplicate/task-001-contains-duplicate/`
 
 This is the warm-up task. The algorithm is simple on purpose, so the focus is on clean, idiomatic Go, just like in a real interview.
 
@@ -35,6 +34,7 @@ func ContainsDuplicate(nums []int) bool
 3. Use idiomatic Go: a `map[int]struct{}` as a set is preferred over `map[int]bool`, and pre-size the map where it makes sense.
 4. Return early as soon as a duplicate is found.
 5. Add a doc comment above each exported function.
+6. The solution lives in the `containsduplicate` package (its own directory), and a `main.go` (`package main`) in the project root calls the exported functions on the examples above and prints the results.
 
 ## Bonus (optional)
 - Write **table-driven tests** with `t.Run` subtests covering at least: empty slice, single element, all distinct, duplicate at the start, duplicate at the end, negative numbers, and large values near the constraints. Both implementations should pass the same test table.
@@ -46,17 +46,20 @@ func ContainsDuplicate(nums []int) bool
 ```
 task-001-contains-duplicate/
 ├── go.mod
-├── contains_duplicate.go
-├── contains_duplicate_test.go   (bonus)
-└── README.md                    (bonus)
+├── main.go                                  (package main)
+├── README.md                                (bonus)
+└── containsduplicate/
+    ├── contains_duplicate.go                (package containsduplicate)
+    └── contains_duplicate_test.go           (bonus)
 ```
 
 ## Definition of Done
 - [ ] `go build ./...` succeeds
+- [ ] `go run .` prints the results for the examples
 - [ ] `go vet ./...` reports no issues
 - [ ] `gofmt -l .` returns nothing
 - [ ] Both functions return correct results (verified by my review tests, run with `-race`)
 - [ ] The input slice is never mutated
 
 ## Submission
-Move this card to **Testing / QA / Review**, upload the project as a `.rar` in chat, and send a message that it is ready for review.
+Push your solution to the repo folder above, move this card to **Testing / QA / Review**, and send me a message that it is ready for review.
