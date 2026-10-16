@@ -60,8 +60,8 @@ var tests = []struct {
 	},
 	{
 		name: "distinct large values near the constraints",
-		s: []int{373158606, -760918337, -946289816, 592467581, -409379029,
-			-474098744, -520658577, -700344588, 581559892, -779893293,
+		s: []int{1_000_000_000, 373158606, -760918337, -946289816, 592467581, -409379029,
+			-474098744, -520658577, -700344588, 999_999_999, 581559892, -779893293,
 			453201078, 590571865, 915941032, 171165722, -813300287,
 			268073012, -93929780, -931747207, -936010953, -798790995,
 			-530478523, -500364532, 85242216, 292825378, -943014439,
@@ -71,13 +71,13 @@ var tests = []struct {
 	},
 	{
 		name: "duplicate large values near the constraints",
-		s: []int{-779893293, -931747207, -798790995, -500364532, 506083910,
+		s: []int{-1_000_000_000, -779893293, -931747207, -798790995, -500364532, 506083910,
 			-474098744, 292825378, -572999404, -530478523, -813300287,
 			205264595, 268073012, -93929780, -700344588, -931747207,
 			-760918337, 537640408, -936010953, 590571865, -93929780,
-			915941032, -946289816, 592467581, 395616196, -943014439,
+			915941032, -946289816, 592467581, 999_999_999, 395616196, -943014439,
 			-520658577, -409379029, 581559892, -520658577, 171165722,
-			85242216, 453201078, 373158606},
+			85242216, 453201078, 373158606, -1_000_000_000},
 		want: true,
 	},
 }
@@ -85,10 +85,21 @@ var tests = []struct {
 func TestContainsDuplicate(t *testing.T) {
 	for _, tc := range tests {
 
+		sBefore := tc.s
 		got := ContainsDuplicate(tc.s)
 
 		if got != tc.want {
 			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
+		}
+
+		if len(sBefore) != len(tc.s) {
+			t.Errorf("Original slice is modified")
+		} else {
+			for i := 0; i < len(tc.s); i++ {
+				if sBefore[i] != tc.s[i] {
+					t.Errorf("Original slice is modified")
+				}
+			}
 		}
 	}
 
@@ -97,10 +108,46 @@ func TestContainsDuplicate(t *testing.T) {
 func TestContainsDuplicateSort(t *testing.T) {
 	for _, tc := range tests {
 
+		sBefore := tc.s
 		got := ContainsDuplicateSort(tc.s)
 
 		if got != tc.want {
 			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
 		}
+
+		if len(sBefore) != len(tc.s) {
+			t.Errorf("Original slice is modified")
+		} else {
+			for i := 0; i < len(tc.s); i++ {
+				if sBefore[i] != tc.s[i] {
+					t.Errorf("Original slice is modified")
+				}
+			}
+		}
+
 	}
+
+}
+
+func TestContainsDuplicateGeneric(t *testing.T) {
+	for _, tc := range tests {
+
+		sBefore := tc.s
+		got := ContainsDuplicateGeneric(tc.s)
+
+		if got != tc.want {
+			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
+		}
+
+		if len(sBefore) != len(tc.s) {
+			t.Errorf("Original slice is modified")
+		} else {
+			for i := 0; i < len(tc.s); i++ {
+				if sBefore[i] != tc.s[i] {
+					t.Errorf("Original slice is modified")
+				}
+			}
+		}
+	}
+
 }
