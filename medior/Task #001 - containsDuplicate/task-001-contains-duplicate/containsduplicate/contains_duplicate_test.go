@@ -1,6 +1,7 @@
 package containsduplicate
 
 import (
+	"slices"
 	"testing"
 )
 
@@ -85,21 +86,15 @@ var tests = []struct {
 func TestContainsDuplicate(t *testing.T) {
 	for _, tc := range tests {
 
-		sBefore := tc.s
+		sBefore := slices.Clone(tc.s)
 		got := ContainsDuplicate(tc.s)
 
 		if got != tc.want {
 			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
 		}
 
-		if len(sBefore) != len(tc.s) {
+		if len(sBefore) != len(tc.s) || !slices.Equal(sBefore, tc.s) {
 			t.Errorf("Original slice is modified")
-		} else {
-			for i := 0; i < len(tc.s); i++ {
-				if sBefore[i] != tc.s[i] {
-					t.Errorf("Original slice is modified")
-				}
-			}
 		}
 	}
 
@@ -108,21 +103,15 @@ func TestContainsDuplicate(t *testing.T) {
 func TestContainsDuplicateSort(t *testing.T) {
 	for _, tc := range tests {
 
-		sBefore := tc.s
+		sBefore := slices.Clone(tc.s)
 		got := ContainsDuplicateSort(tc.s)
 
 		if got != tc.want {
 			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
 		}
 
-		if len(sBefore) != len(tc.s) {
+		if len(sBefore) != len(tc.s) || !slices.Equal(sBefore, tc.s) {
 			t.Errorf("Original slice is modified")
-		} else {
-			for i := 0; i < len(tc.s); i++ {
-				if sBefore[i] != tc.s[i] {
-					t.Errorf("Original slice is modified")
-				}
-			}
 		}
 
 	}
@@ -132,21 +121,15 @@ func TestContainsDuplicateSort(t *testing.T) {
 func TestContainsDuplicateGeneric(t *testing.T) {
 	for _, tc := range tests {
 
-		sBefore := tc.s
+		sBefore := slices.Clone(tc.s)
 		got := ContainsDuplicateGeneric(tc.s)
 
 		if got != tc.want {
 			t.Errorf("%s: expected %t, got %t", tc.name, tc.want, got)
 		}
 
-		if len(sBefore) != len(tc.s) {
+		if len(sBefore) != len(tc.s) || !slices.Equal(sBefore, tc.s) {
 			t.Errorf("Original slice is modified")
-		} else {
-			for i := 0; i < len(tc.s); i++ {
-				if sBefore[i] != tc.s[i] {
-					t.Errorf("Original slice is modified")
-				}
-			}
 		}
 	}
 
